@@ -1,117 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação de Acesso</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            font-family: 'Segoe UI', sans-serif;
-        }
+<script>
+    function gerarToken() {
+        const agora = Date.now();
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 350px;
-        }
+        // bloco de 2 minutos (120000 ms)
+        const blocoTempo = Math.floor(agora / 120000);
 
-        .icon-check {
-            width: 60px;
-            height: 60px;
-            border: 4px solid #2ecc71;
-            color: #2ecc71;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
+        return btoa("token-" + blocoTempo).substring(0, 12);
+    }
 
-        h1 {
-            color: #1a202c;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+    function atualizarSistema() {
+        const agora = Date.now();
 
-        p.description {
-            color: #718096;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
+        // calcula quanto falta para o próximo ciclo de 2 minutos
+        const resto = 120000 - (agora % 120000);
+        const segundos = Math.floor(resto / 1000);
 
-        .token-label {
-            font-weight: bold;
-            color: #4a5568;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
+        // gera token
+        const token = gerarToken();
 
-        .token-value {
-            color: #00bcd4;
-            font-size: 28px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
+        // atualiza tela
+        document.getElementById("token").innerText = token;
+        document.getElementById("contador").innerText = segundos;
 
-        .timer-container {
-            color: #a0aec0;
-            font-size: 14px;
-            border-top: 1px solid #edf2f7;
-            padding-top: 20px;
-        }
+        // atualiza link
+        const link = document.querySelector(".btn-continuar");
+        link.href = "https://leonardo-bengozi.github.io/GrandPrix/?token=" + token;
+    }
 
-        #seconds {
-            font-weight: bold;
-            color: #e53e3e; /* Vermelho para indicar urgência */
-        }
-    </style>
-</head>
-<body>
+    // atualiza a cada 1 segundo (sem conflito)
+    setInterval(atualizarSistema, 1000);
 
-    <div class="card">
-        <div class="icon-check">✓</div>
-        <h1>Login realizado!</h1>
-        <p class="description">Sua autenticação foi concluída com sucesso.</p>
-
-        <span class="token-label">Token atual:</span>
-        <span class="token-value">dG9rZW4tMTQ4</span>
-        
-        <div class="timer-container">
-            Expira em: <span id="seconds">120</span>s
-        </div>
-    </div>
-
-    <script>
-        // Função simples para o timer regressivo
-        let tempo = 120;
-        const display = document.getElementById('seconds');
-
-        const contagem = setInterval(() => {
-            tempo--;
-            display.innerText = tempo;
-
-            if (tempo <= 0) {
-                clearInterval(contagem);
-                display.innerText = "0";
-                alert("O token expirou!");
-            }
-        }, 1000);
-    </script>
-
-</body>
-</html>
+    // roda imediatamente ao carregar
+    atualizarSistema();
+</script>
