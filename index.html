@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Confirmado</title>
+    <title>Confirmação de Acesso</title>
     <style>
         body {
             margin: 0;
@@ -13,7 +13,7 @@
             align-items: center;
             height: 100vh;
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         .card {
@@ -48,7 +48,6 @@
         p.description {
             color: #718096;
             font-size: 14px;
-            line-height: 1.5;
             margin-bottom: 30px;
         }
 
@@ -56,23 +55,29 @@
             font-weight: bold;
             color: #4a5568;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 16px;
         }
 
         .token-value {
             color: #00bcd4;
             font-size: 28px;
-            font-family: 'Segoe UI', sans-serif;
-            margin-bottom: 10px;
+            font-weight: bold;
             display: block;
-            word-break: break-all;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
         }
 
-        .expire-text {
+        .timer-container {
             color: #a0aec0;
             font-size: 14px;
-            margin-top: 20px;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+
+        #seconds {
+            font-weight: bold;
+            color: #e53e3e; /* Vermelho para indicar urgência */
         }
     </style>
 </head>
@@ -81,15 +86,32 @@
     <div class="card">
         <div class="icon-check">✓</div>
         <h1>Login realizado!</h1>
-        <p class="description">Bem-vindo de volta. Você foi autenticado com sucesso em nossa plataforma.</p>
+        <p class="description">Sua autenticação foi concluída com sucesso.</p>
 
         <span class="token-label">Token atual:</span>
         <span class="token-value">dG9rZW4tMTQ4</span>
         
-        <div class="expire-text">
-            Expira em: 112s
+        <div class="timer-container">
+            Expira em: <span id="seconds">120</span>s
         </div>
     </div>
+
+    <script>
+        // Função simples para o timer regressivo
+        let tempo = 120;
+        const display = document.getElementById('seconds');
+
+        const contagem = setInterval(() => {
+            tempo--;
+            display.innerText = tempo;
+
+            if (tempo <= 0) {
+                clearInterval(contagem);
+                display.innerText = "0";
+                alert("O token expirou!");
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
