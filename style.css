@@ -1,119 +1,69 @@
-/* Reset básico */
+/* Reset para garantir que o estilo pegue do zero */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fundo com tema Petrobras (Verde e Amarelo sutil) */
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #008542 0%, #00a859 60%, #ffcc00 100%);
-    height: 100vh;
+    margin: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    overflow: hidden;
+    align-items: center;
+    height: 100vh;
+    /* Degradê oficial Petrobras: Verde para o Amarelo sutil */
+    background: linear-gradient(135deg, #008542 0%, #00a859 50%, #ffcc00 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Card principal */
-.card-confirmacao {
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 12px; /* Bordas um pouco mais sóbrias */
+.card-petrobras {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
     text-align: center;
-    width: 350px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.6s ease-out;
+    width: 340px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
-/* Ícone */
-.sucesso-icon {
-    margin-bottom: 15px;
-}
-
-/* Título */
-.card-confirmacao h1 {
-    font-size: 24px;
-    margin-bottom: 8px;
-    color: #111827;
-}
-
-/* Texto informativo */
-.card-confirmacao p {
-    font-size: 14px;
-    color: #6b7280;
-    margin-bottom: 20px;
-}
-
-/* Código Token */
-.token {
-    display: block;
-    background-color: #f0fdf4;
-    color: #008542;
-    font-family: monospace;
-    font-size: 1.2rem;
+.check { 
+    color: #008542; /* Verde Petrobras */
+    font-size: 60px; 
+    margin-bottom: 10px; 
     font-weight: bold;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px dashed #008542;
-    margin-bottom: 20px;
 }
 
-/* Cronômetro */
-.timer {
+h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.status {
+    color: #666;
     font-size: 14px;
-    color: #374151;
-    font-weight: bold;
     margin-bottom: 25px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
 }
 
-/* Botão principal (Verde Petrobras) */
-.btn-continuar {
+.token { 
+    color: #008542; 
+    background-color: #f0fdf4;
+    border: 2px dashed #008542;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 20px; 
+    font-weight: bold; 
+    margin-bottom: 25px; 
     display: block;
-    background: #008542;
-    color: #fff;
-    border: none;
-    padding: 14px;
-    border-radius: 6px;
-    font-weight: bold;
-    width: 100%;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-bottom: 10px;
+    word-break: break-all;
 }
 
-.btn-continuar:hover {
-    background: #006b35;
+.timer { 
+    color: #2d3748; 
+    font-weight: bold; 
+    border-top: 1px solid #eee; 
+    padding-top: 20px; 
+    font-size: 14px;
 }
 
-/* Botão secundário */
-.btn-voltar {
-    background: transparent;
-    border: 1px solid #d1d5db;
-    color: #4b5563;
-    padding: 10px;
-    border-radius: 6px;
-    width: 100%;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-voltar:hover {
-    background: #f9fafb;
-    border-color: #9ca3af;
-}
-
-/* Animação de entrada */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#s {
+    color: #e63946; /* Destaque para o tempo */
 }
