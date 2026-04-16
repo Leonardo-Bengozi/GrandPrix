@@ -1,4 +1,4 @@
-/* Reset para garantir que o estilo pegue do zero */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -11,59 +11,85 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Degradê oficial Petrobras: Verde para o Amarelo sutil */
-    background: linear-gradient(135deg, #008542 0%, #00a859 50%, #ffcc00 100%);
+    /* Alterado: to bottom faz o verde ficar em cima e o amarelo embaixo */
+    /* Usei as cores oficiais: Verde (#008542) e Amarelo (#ffcc00) */
+    background: linear-gradient(to bottom, #008542 0%, #00a859 40%, #ffcc00 100%);
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .card-petrobras {
     background: white;
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 12px;
     text-align: center;
-    width: 340px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    width: 350px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .check { 
-    color: #008542; /* Verde Petrobras */
-    font-size: 60px; 
+    color: #008542; 
+    font-size: 50px; 
     margin-bottom: 10px; 
-    font-weight: bold;
 }
 
 h2 {
-    color: #333;
+    font-size: 24px;
+    color: #111;
     margin-bottom: 5px;
 }
 
 .status {
     color: #666;
     font-size: 14px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .token { 
-    color: #008542; 
-    background-color: #f0fdf4;
-    border: 2px dashed #008542;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 20px; 
-    font-weight: bold; 
-    margin-bottom: 25px; 
     display: block;
-    word-break: break-all;
+    background-color: #f0fdf4;
+    color: #008542;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px dashed #008542;
+    margin-bottom: 20px;
 }
 
 .timer { 
-    color: #2d3748; 
+    color: #333; 
     font-weight: bold; 
     border-top: 1px solid #eee; 
-    padding-top: 20px; 
+    padding-top: 15px; 
+    margin-bottom: 25px;
     font-size: 14px;
 }
 
-#s {
-    color: #e63946; /* Destaque para o tempo */
+.btn-continuar {
+    display: block;
+    background: #008542;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.btn-continuar:hover {
+    background: #006b35;
+}
+
+.btn-voltar {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
 }
