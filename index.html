@@ -2,41 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Login Confirmado</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            font-family: sans-serif;
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            width: 300px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .check { color: #2ecc71; font-size: 50px; margin-bottom: 10px; }
-        .token { color: #00bcd4; font-size: 24px; font-weight: bold; margin: 20px 0; display: block; }
-        .timer { color: #2d3748; font-weight: bold; border-top: 1px solid #eee; padding-top: 20px; }
-    </style>
+    <title>Petrobras - Login Confirmado</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="card">
         <div class="check">✓</div>
         <h2>Login realizado!</h2>
-        <p style="color: #666;">Autenticação concluída.</p>
+        <p>Autenticação concluída.</p>
         <span class="token">dG9rZW4tMTQ4</span>
         <div class="timer">Expira em: <span id="s">120</span>s</div>
     </div>
+    
     <script>
         let t = 120;
-        setInterval(() => { if(t > 0) t--; document.getElementById('s').innerText = t; }, 1000);
+        setInterval(() => { 
+            if(t > 0) t--; 
+            document.getElementById('s').innerText = t; 
+        }, 1000);
     </script>
 </body>
 </html>
