@@ -2,23 +2,40 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Petrobras - Login Confirmado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrobras - Autenticação</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card">
-        <div class="check">✓</div>
-        <h2>Login realizado!</h2>
-        <p>Autenticação concluída.</p>
-        <span class="token">dG9rZW4tMTQ4</span>
-        <div class="timer">Expira em: <span id="s">120</span>s</div>
-    </div>
-    
+    <main class="container">
+        <div class="card-confirmacao">
+            <div class="sucesso-icon">
+                <svg viewBox="0 0 24 24" width="60" height="60" stroke="#008542" stroke-width="3" fill="none">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h1>Login realizado!</h1>
+            <p>Autenticação concluída com sucesso.</p>
+            
+            <span class="token">dG9rZW4tMTQ4</span>
+
+            <div class="timer">
+                Expira em: <span id="s">120</span>s
+            </div>
+
+            <button class="btn-continuar">Acessar Painel</button>
+            <button class="btn-voltar">Sair</button>
+        </div>
+    </main>
+
     <script>
         let t = 120;
+        const display = document.getElementById('s');
         setInterval(() => { 
-            if(t > 0) t--; 
-            document.getElementById('s').innerText = t; 
+            if(t > 0) {
+                t--; 
+                display.innerText = t; 
+            }
         }, 1000);
     </script>
 </body>
