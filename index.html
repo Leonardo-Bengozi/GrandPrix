@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petrobras - Autenticação</title>
+    <title>Petrobras - Login Confirmado</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="container">
-        <div class="card-confirmacao">
-            <div class="sucesso-icon">
-                <svg viewBox="0 0 24 24" width="60" height="60" stroke="#008542" stroke-width="3" fill="none">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-            <h1>Login realizado!</h1>
-            <p>Autenticação concluída com sucesso.</p>
-            
-            <span class="token">dG9rZW4tMTQ4</span>
-
-            <div class="timer">
-                Expira em: <span id="s">120</span>s
-            </div>
-
-            <button class="btn-continuar">Acessar Painel</button>
-            <button class="btn-voltar">Sair</button>
+    <div class="card-petrobras">
+        <div class="check">✓</div>
+        <h2>Login realizado!</h2>
+        <p class="status">Autenticação concluída.</p>
+        
+        <span class="token" id="tokenCode">dG9rZW4tMTQ4</span>
+        
+        <div class="timer">
+            Expira em: <span id="s">120</span>s
         </div>
-    </main>
+    </div>
 
     <script>
         let t = 120;
